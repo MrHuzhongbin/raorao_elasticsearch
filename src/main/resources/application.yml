@@ -1,0 +1,32 @@
+# 应用名称
+server:
+  port: 8092
+spring:
+  application:
+    name: search-service
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 39.102.53.82:9300
+  rabbitmq:
+    host: 39.102.53.82
+    username: raorao
+    password: rl18702327006
+    virtual-host: /raorao
+eureka:
+  client:
+    service-url:
+      defaultZone: http://121.196.169.60:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 39.102.53.82
+# 设置 feign 客户端超时时间（OpenFeign 默认支持 ribbon）
+ribbon:
+  # 值的是建立连接所用的时间，使用与网络状态正常的情况，两端连接所用的时间
+  ReadTimeout: 5000
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectionTimeout: 5000
+
+
